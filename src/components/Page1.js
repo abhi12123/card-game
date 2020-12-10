@@ -1,20 +1,24 @@
 import React,{useState} from 'react';
 import PlayerDetails from './PlayerDetails'
 
+//Welcome Page
 const Page1 = (props) => {
+    //option variable stores the input option
     const [option,setOption]=useState(0);
+    //playerArray stores the input names. By default 10 elements with empty strings
     const playerArray = new Array(10).fill('');
     playerArray.length=option;
+    //runs whenever option is changed
     const changeOption = (e) => {
-        e.preventDefault();
         setOption(e.target.value);
     }
+    //runs on clicking shuffle button
     const shuffle = () => {
         props.setPageNum(props.pageNum+1)
     }
 
     return(
-        <div>
+        <div className='page1'>
             <h1>Welcome</h1>
             <label>Enter the Number of Players</label>
             <select onChange={e=>changeOption(e)}>
@@ -30,7 +34,12 @@ const Page1 = (props) => {
                 <option value={9}>9</option>
                 <option value={10}>10</option>
             </select>
-            {playerArray.map((x,i) => <PlayerDetails playerNum={i+1} playerArray={playerArray}/>)}
+            {
+                playerArray.map(
+                    (x,i) => <PlayerDetails playerNum={i+1} playerArray={playerArray}/>
+                )
+            }
+            <br/>
             <button onClick = {() => shuffle()}>Shuffle</button>
         </div>
     )

@@ -3,7 +3,8 @@ import './App.css';
 import Page1 from './components/Page1';
 import Page2 from './components/Page2';
 
-function App() {
+const App = () => {
+  //pageNum returns respective pages
   const [pageNum,setPageNum] = useState(1);
   switch(pageNum) {
     case 1 : return <Page1 setPageNum={setPageNum} pageNum={pageNum}/>;
