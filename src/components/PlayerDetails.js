@@ -14,7 +14,11 @@ const PlayerDetails = (props) => {
         <div>
             <label>Player {props.playerNum} </label>
             <input onChange={e=>changeValue(e)} value={value}></input>
-        </div>
+            {
+                props.playerArray.every((element) => element !== '')?
+                    props.setShuffleButton(true): props.setShuffleButton(false)
+            }
+            </div>
     )
 }
 

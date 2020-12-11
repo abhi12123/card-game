@@ -13,6 +13,7 @@ const Page1 = (props) => {
         setOption(e.target.value);
     }
     //runs on clicking shuffle button
+    const [shuffleButton, setShuffleButton] = useState(false);
     const shuffle = () => {
         props.setPageNum(props.pageNum+1)
     }
@@ -36,11 +37,14 @@ const Page1 = (props) => {
             </select>
             {
                 playerArray.map(
-                    (x,i) => <PlayerDetails playerNum={i+1} playerArray={playerArray}/>
+                    (x,i) => <PlayerDetails playerNum={i+1} playerArray={playerArray} setShuffleButton={setShuffleButton}/>
                 )
             }
             <br/>
-            <button onClick = {() => shuffle()}>Shuffle</button>
+            {
+                shuffleButton?<button onClick = {() => shuffle()}>Shuffle</button>:true
+            }
+            
         </div>
     )
 }

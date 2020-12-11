@@ -2,7 +2,7 @@ import React from 'react';
 
 const Page2 = (props) => {
     const back = () => {
-        props.setPageNum(props.pageNum-1)
+        props.setPageNum(1)
     }
     return (
         <div className='page2'>
