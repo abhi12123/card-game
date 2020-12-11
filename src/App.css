@@ -5,15 +5,19 @@
 }
 body{
   background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  background-attachment: fixed;
   height: 100vh;
   width: 100vw;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
-.page1,.page2{
+.landing-page,.shuffled-page{
   text-align: center;
 }
 h1{
   margin: 20px;
+}
+h2{
+  margin: 10px;
 }
 input, button, select{
     border:2px solid black;
@@ -26,7 +30,20 @@ input, button, select{
     padding: 5px;
     transition: 0.3s;
 }
-input:hover, button:hover, select:hover{
+button:hover,input:focus, select:focus{
     background-color:black;
     color: white;
+}
+.player-card{
+  border: black solid 3px;
+  width: 10rem;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.player-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

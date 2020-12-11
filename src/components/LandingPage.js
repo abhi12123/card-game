@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
-import PlayerDetails from './PlayerDetails'
+import PlayerDetails from './PlayerDetails';
 
 //Welcome Page
-const Page1 = (props) => {
+const LandingPage = (props) => {
     //option variable stores the input option
     const [option,setOption]=useState(0);
     //playerArray stores the input names. By default 10 elements with empty strings
@@ -15,11 +15,12 @@ const Page1 = (props) => {
     //runs on clicking shuffle button
     const [shuffleButton, setShuffleButton] = useState(false);
     const shuffle = () => {
-        props.setPageNum(props.pageNum+1)
+        props.setPageNum(props.pageNum+1);
+        props.setPlayerArray(playerArray);
     }
 
     return(
-        <div className='page1'>
+        <div className='landing-page'>
             <h1>Welcome</h1>
             <label>Enter the Number of Players</label>
             <select onChange={e=>changeOption(e)}>
@@ -49,4 +50,4 @@ const Page1 = (props) => {
     )
 }
 
-export default Page1;
+export default LandingPage;

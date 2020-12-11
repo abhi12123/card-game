@@ -7,6 +7,7 @@ const PlayerDetails = (props) => {
         e.preventDefault();
         setValue(e.target.value);
     }
+
     //input value is stored to name array
     props.playerArray[props.playerNum-1] = value;
     // console.log(props.playerArray);
@@ -18,7 +19,7 @@ const PlayerDetails = (props) => {
                 props.playerArray.every((element) => element !== '')?
                     props.setShuffleButton(true): props.setShuffleButton(false)
             }
-            </div>
+        </div>
     )
 }
 
