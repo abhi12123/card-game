@@ -3,19 +3,19 @@ import PlayerDetails from './PlayerDetails';
 
 //Welcome Page
 const LandingPage = (props) => {
-    //option variable stores the input option
     const [option,setOption]=useState(0);
     //playerArray stores the input names. By default 10 elements with empty strings
     const playerArray = new Array(10).fill('');
+    //length to be changed dynamically as per the option
     playerArray.length=option;
-    //runs whenever option is changed
     const changeOption = (e) => {
         setOption(e.target.value);
     }
-    //runs on clicking shuffle button
     const [shuffleButton, setShuffleButton] = useState(false);
     const shuffle = () => {
+        //goes to the next page
         props.setPageNum(props.pageNum+1);
+        //saves the player array
         props.setPlayerArray(playerArray);
     }
 
@@ -36,13 +36,13 @@ const LandingPage = (props) => {
                 <option value={9}>9</option>
                 <option value={10}>10</option>
             </select>
-            {
+            {   
                 playerArray.map(
                     (x,i) => <PlayerDetails playerNum={i+1} playerArray={playerArray} setShuffleButton={setShuffleButton}/>
                 )
             }
             <br/>
-            {
+            {   //checks whether shuffleButton is true. If true then Shuffle Button is rendered
                 shuffleButton?<button onClick = {() => shuffle()}>Shuffle</button>:true
             }
             

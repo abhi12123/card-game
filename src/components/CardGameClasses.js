@@ -23,7 +23,6 @@ class Deck{
         this.cards=[];
         //initialises the deck with 52 cards
         this.intialise=function(){
-            let n=0;
             for(let j of this.suite){
                 //initialises cards from 2 to 10
                 for(let i=2;i<11;i++){            
@@ -85,11 +84,10 @@ class Player{
 class Table{
     constructor(){
         this.players=[];
-        this.tableLimit=6;
     }
-    //adds atmost 6 players to the table
+    //adds atmost 10 players to the table
     addPlayer(player){
-        if(this.players.length==6){
+        if(this.players.length===10){
             return true;
         }else{
             this.players.push(player);
@@ -101,7 +99,7 @@ class Table{
         deck.shuffle(); 
         let j=0;
         while(deck.cards.length>0){
-            if(j==this.players.length){
+            if(j===this.players.length){
                 j=0;
             }
             this.players[j].giveCard(deck.removeCard());
@@ -112,10 +110,7 @@ class Table{
     playerScoreOrder(){
         this.players.sort(
             function(a,b) { return (a.getScore() - b.getScore()) } 
-        );
-        for(let j of this.players){
-            // console.log(j.name,j.getScore()) //remove the comment to view the scores
-        }
+        )        
     }
 }
 
