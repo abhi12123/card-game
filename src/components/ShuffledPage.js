@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {Table,Deck,Player} from './CardGameClasses';
 import PlayerCard from './PlayerCard';
 
@@ -10,6 +10,19 @@ const ShuffledPage = (props) => {
     let table = new Table();
     let deck = new Deck();
     deck.intialise();
+
+    const [ shuffling, setShuffling ] = useState(true)
+
+    setTimeout(
+        () => {setShuffling(false)}, 3000
+    )
+
+    if (shuffling) {
+        return (
+            <h1 className='shuffling'>Shuffling...</h1>
+        )
+    }
+
     return (
         <div className='shuffled-page'>
             <h1>Shuffled Menu</h1>
@@ -24,7 +37,7 @@ const ShuffledPage = (props) => {
                     table.players.map((e,i) => (<PlayerCard player={e} index={i+1}/>))
                 }
             </div>
-            <button onClick = {() => back()}>Back</button>
+            <button onClick = {() =>back}>Back</button>
         </div>
     )
 }
